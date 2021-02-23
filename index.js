@@ -47,6 +47,13 @@ app.get('/adopt', (req,res) => {
   });
 });
 
+app.post('/adoptformreceived', (req,res) => {
+  let context = {};
+  context.firstName = req.body.firstName;
+  context.email = req.body.email;
+  res.render('adoptformreceived', context);
+});
+
 app.use(function(req,res) {
   res.type('text/plain');
   res.status(404);
