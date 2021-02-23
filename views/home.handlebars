@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rebecca's Rattie Rescue</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Navigation Bar inspired by w3schools.com Bootstrap reference-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="container-header">
+        <a class="navbar-brand">Rebecca's Rattie Rescue</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<br>
+<!-- Carousel inspired by w3schools.com Bootstrap reference example -->
+<div class="container-fluid">
+  <div id="ratCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#ratCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#ratCarousel" data-slide-to="1"></li>
+      <li data-target="#ratCarousel" data-slide-to="2"></li>
+      <li data-target="#ratCarousel" data-slide-to="3"></li>
+      <li data-target="#ratCarousel" data-slide-to="4"></li>
+      <li data-target="#ratCarousel" data-slide-to="5"></li>
+    </ol>
+
+  <div class="carousel-inner">
+    {{#each this}}
+      {{#if this.active}}
+      <div class="item active">
+      {{else}}
+      <div class="item">
+      {{/if}}
+        <img src="{{this.imgUrl}}" alt="{{this.imgAlt}}">
+        <div class="carousel-caption">
+          <h4>{{this.name}}</h4>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <!-- Left and right control buttons -->
+  <a class="left carousel-control" href="#ratCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span> 
+  </a>
+  <a class="right carousel-control" href="#ratCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
+
+
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Rebecca’s Rattie Rescue<br>
+  101 Fake Street<br>
+  Fakecity, Massachusetts 55555<br>
+  Phone: 555-555-5555</br>
+  Email: info@rebeccasrattierescue.org</p>
+</footer>
+
+</body>
+</html>

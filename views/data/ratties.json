@@ -1,0 +1,68 @@
+[
+	{
+		"id": 0,
+		"name": "Prishe",
+		"imgUrl": "images/Prishe.jpg",
+		"imgAlt": "rat looking around curiously",
+		"age": 19,
+		"sex": "female",
+		"favoriteTreat": "Grapes",
+		"description": "",
+		"active": 1
+	},
+	{
+		"id": 1,
+		"name": "Crinkles",
+		"imgUrl": "images/Crinkles.jpg",
+		"imgAlt": "rat in a coconut",
+		"age": 20,
+		"sex": "female",
+		"favoriteTreat": "Yogurt Drops",
+		"description": "",
+		"active": 0
+	},
+	{
+		"id": 2,
+		"name": "Omar",
+		"imgUrl": "images/Omar.jpg",
+		"imgAlt": "rat in a blanket",
+		"age": 15,
+		"sex": "male",
+		"favoriteTreat": "Cheetos",
+		"description": "",
+		"active": 0
+	},
+	{
+		"id": 3,
+		"name": "Putt-Putt",
+		"imgUrl": "images/puttputt.jpg",
+		"imgAlt": "a rat looking at camera",
+		"age": 12,
+		"sex": "male",
+		"favoriteTreat": "Cheerios",
+		"description": "",
+		"active": 0
+	},
+	{
+		"id": 4,
+		"name": "Higgens",
+		"imgUrl": "images/Higgens.jpg",
+		"imgAlt": "baby rat standing still",
+		"age": 6,
+		"sex": "male",
+		"favoriteTreat": "Carrots",
+		"description": "",
+		"active": 0
+	},
+	{
+		"id": 5,
+		"name": "Bismarck",
+		"imgUrl": "images/Bismarck.jpg",
+		"imgAlt": "furless rat standing still",
+		"age": 26,
+		"sex": "male",
+		"favoriteTreat": "British Tea Biscuits",
+		"description": "",
+		"active": 0
+	}
+]

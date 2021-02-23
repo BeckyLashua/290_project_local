@@ -1,0 +1,34 @@
+.item img {
+    width:100%;
+}
+
+.navbar {
+    background-color: #d1e0e0;
+    padding: 20px;
+}
+
+footer {
+    background-color: #d1e0e0;
+    color: #333;
+    padding: 20px;
+}
+
+form {
+    padding: 20px;
+}
+
+#aboutUsImg {
+    padding: 50px;
+}
+
+#operationInfo {
+    text-align: left;
+}
+
+#operationInfo ul {
+    list-style-type: none;
+}
+
+#volunteerList {
+    list-style-type: none;
+}
