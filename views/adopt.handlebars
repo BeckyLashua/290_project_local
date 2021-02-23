@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Adopt</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Navigation Bar inspired by w3schools.com Bootstrap NavBar reference-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="container-header">
+        <a class="navbar-brand">Rebecca's Rattie Rescue</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="adopt">Adopt</a></li>
+        <li><a href="volunteer">Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Form inspired by w3schools.com Bootstrap Form reference-->
+  <br>
+  <h2>Adoption Form</h2>
+  <br>
+  <p>Want to adopt rats? Fill out this form and we will get back to you!</p>
+  <br>
+  <form>
+      <div class="form-group row">
+          <div class="col-xs-3">
+            <label for="firstName">First Name</label>
+            <input id="firstName" class="form-control" type="text">
+          </div>
+          <div class="col-xs-3">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" class="form-control" type="text">
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-xs-4">
+            <label for="email">Email</label>
+            <input id="email" class="form-control" type="email">
+          </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-3">
+            <label for="phone">Phone Number</label>
+            <input id="phone" class="form-control" type="tel">
+        </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-xs-3 checkbox">
+              <label for="ageCheck"><input id="ageCheck" type="checkbox" value="">I am at least 18 years old</label>
+          </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-3 checkbox">
+            <label for="hasOwned"><input id="hasOwned" type="checkbox" value="">I have owned pet rats in the past.</label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-6">
+            <h5><strong>Rats are social animals, therefore we only allow adoptions of at least 2 rats:</strong></h6>
+            <label for="pickRat1">Select at least 2 pet rats.</label>
+            <select id="pickRat1" class="form-control" multiple>
+              <option>No Preferences</option>
+              <option>Crinkles</option>
+              <option>Prishe</option>
+              <option>Omar</option>
+              <option>Putt-Putt</option>
+              <option>Bismarck</option>
+              <option>Higgens</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-xs-6">
+          <label for="comment">Any questions or comments?</label>
+          <textarea id="comment" class="form-control" rows="6"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>
+
+<footer class="container-fluid text-center">
+    <p>Rebecca’s Rattie Rescue<br>
+    101 Fake Street<br>
+    Fakecity, Massachusetts 55555<br>
+    Phone: 555-555-5555</br>
+    Email: info@rebeccasrattierescue.org</p>
+</footer>
+
+</body>
+</html>

@@ -32,3 +32,11 @@ form {
 #volunteerList {
     list-style-type: none;
 }
+
+.scrollBox {
+    width: 100px;
+    height: 100px;
+    font-size: 2em;
+    border: green solid 1px;
+    overflow: auto;
+}

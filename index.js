@@ -6,6 +6,7 @@ const app = express();
 
 
 let exphbs = require('express-handlebars');
+
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -24,9 +25,20 @@ app.get('/', (req, res) => {
   fs.readFile("views/data/ratties.json", function(err, data) {
     if (err) throw err;
     const parsedData = JSON.parse(data);
-    console.log(parsedData);
     res.render('home', parsedData);
   });
+});
+
+app.get('/about', (req,res) => {
+  res.render('about');
+});
+
+app.get('/volunteer', (req,res) => {
+  res.render('volunteer');
+});
+
+app.get('/adopt', (req,res) => {
+  res.render('adopt');
 });
 
 app.use(function(req,res) {
