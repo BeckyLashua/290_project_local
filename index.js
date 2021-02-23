@@ -38,20 +38,26 @@ app.get('/volunteer', (req,res) => {
 });
 
 app.get('/adopt', (req,res) => {
-  res.render('adopt');
+  // Read Json file
+  const fs = require('fs');
+  fs.readFile("views/data/ratties.json", function(err, data) {
+    if (err) throw err;
+    const parsedData = JSON.parse(data);
+    res.render('adopt', parsedData);
+  });
 });
 
 app.use(function(req,res) {
   res.type('text/plain');
   res.status(404);
-  res.send('404 - Not Found');
+  res.render('404');
 });
   
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.type('plain/text');
   res.status(500);
-  res.send('500 - Server Error'); 
+  res.render('500');
 });
 
 app.listen(port, () => console.log(`App listening to port ${port}`));

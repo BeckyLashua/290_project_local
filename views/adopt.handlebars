@@ -35,58 +35,55 @@
   <br>
   <p>Want to adopt rats? Fill out this form and we will get back to you!</p>
   <br>
-  <form>
+  <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="POST">
       <div class="form-group row">
           <div class="col-xs-3">
             <label for="firstName">First Name</label>
-            <input id="firstName" class="form-control" type="text">
+            <input id="firstName" name="firstName" class="form-control" type="text">
           </div>
           <div class="col-xs-3">
             <label for="lastName">Last Name</label>
-            <input id="lastName" class="form-control" type="text">
+            <input id="lastName" name="lastName" class="form-control" type="text">
           </div>
       </div>
       <div class="form-group row">
           <div class="col-xs-4">
             <label for="email">Email</label>
-            <input id="email" class="form-control" type="email">
+            <input id="email" name="email" class="form-control" type="email">
           </div>
       </div>
       <div class="form-group row">
         <div class="col-xs-3">
             <label for="phone">Phone Number</label>
-            <input id="phone" class="form-control" type="tel">
+            <input id="phone" name="phone" class="form-control" type="tel">
         </div>
       </div>
       <div class="form-group row">
           <div class="col-xs-3 checkbox">
-              <label for="ageCheck"><input id="ageCheck" type="checkbox" value="">I am at least 18 years old</label>
+              <label for="ageCheck"><input id="ageCheck" type="checkbox" name="ageCheck" value="yes">I am at least 18 years old</label>
           </div>
       </div>
       <div class="form-group row">
         <div class="col-xs-3 checkbox">
-            <label for="hasOwned"><input id="hasOwned" type="checkbox" value="">I have owned pet rats in the past.</label>
+            <label for="hasOwned"><input id="hasOwned" type="checkbox" name="hasOwned" value="yes">I have owned pet rats in the past.</label>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-xs-6">
             <h5><strong>Rats are social animals, therefore we only allow adoptions of at least 2 rats:</strong></h6>
-            <label for="pickRat1">Select at least 2 pet rats.</label>
-            <select id="pickRat1" class="form-control" multiple>
-              <option>No Preferences</option>
-              <option>Crinkles</option>
-              <option>Prishe</option>
-              <option>Omar</option>
-              <option>Putt-Putt</option>
-              <option>Bismarck</option>
-              <option>Higgens</option>
+            <label for="pickRat">Select at least 2 pet rats.<br>(Hold down shift to pick more than one)</label>
+            <select id="pickRat" name="pickRat" class="form-control" multiple>
+              <option value="noPref">No Preferences</option>
+              {{#each ratties}}
+                <option value="{{this.name}}">{{this.name}}</option>
+              {{/each}}
             </select>
         </div>
     </div>
     <div class="form-group row">
       <div class="col-xs-6">
           <label for="comment">Any questions or comments?</label>
-          <textarea id="comment" class="form-control" rows="6"></textarea>
+          <textarea id="comment" name="comment" class="form-control" rows="6"></textarea>
       </div>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
