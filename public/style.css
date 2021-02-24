@@ -53,3 +53,7 @@ img {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #333;
 }
+
+#ratModalBody {
+    font-size: 1.5em;
+}
