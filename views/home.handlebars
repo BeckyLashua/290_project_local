@@ -7,20 +7,26 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script href="/main.js" type="text/javascript" rel="stylesheet"></script>
+  <script src="/main.js" type="text/javascript" rel="stylesheet"></script>
   <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 <body>
 
+<!-- container class is for responsive fixed width container on the page-->
 <div class="container">
-
-  <!-- Navigation Bar inspired by w3schools.com Bootstrap reference-->
+  <!-- Navigation Bar inspired by w3schools.com Bootstrap reference
+  The class navbar navbar-default adds a default navigation bar the 
+  top of the page that is by default responsive-->
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <!-- container-fluid class spans the full width of the viewport -->
+    <div class="container-fluid"> 
+      <!-- navbar-brand is for the brand or company's name and it 
+      shows up on the left corner of the navigation bar-->
       <div class="container-header">
         <a class="navbar-brand">Rebecca's Rattie Rescue</a>
       </div>
+      <!-- Create menu options that will be in the navigation bar -->
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="about">About Us</a></li>
@@ -30,49 +36,89 @@
     </div>
   </nav>
 
-
 <br>
 <!-- Carousel inspired by w3schools.com Bootstrap reference example -->
 <div class="container-fluid">
+  <h4 id="meetRats">Meet Our Rats!</h4>
+  <!-- data-ride="carousel" tells Boostrap to start the animation
+    The carousel class tells Bootstrap that this div contains a carousel.
+    The slide class gives us the animation effect we want in our carousel-->  
   <div id="ratCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#ratCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#ratCarousel" data-slide-to="1"></li>
-      <li data-target="#ratCarousel" data-slide-to="2"></li>
-      <li data-target="#ratCarousel" data-slide-to="3"></li>
-      <li data-target="#ratCarousel" data-slide-to="4"></li>
-      <li data-target="#ratCarousel" data-slide-to="5"></li>
+      <!-- data-target points to the ratCoursel carousel element.
+        data-slide-to is used to specify which slide to when clicking 
+        on the dot on the bottom.-->
+      {{#each ratties}}
+        <li data-target="#ratCarousel" data-slide-to="{{@index}}"></li>
+      {{/each}}
     </ol>
 
+  <!-- This will dynamically be populated with the information in the JSON file.
+    carousel-inner is a class that wraps the carousel slides-->
   <div class="carousel-inner">
     {{#each ratties}}
       {{#if this.active}}
+      <!-- First picture is given the active class, which makes the carousel visible, 
+      and each item is added to the carousel-->
       <div class="item active">
       {{else}}
       <div class="item">
       {{/if}}
-        <img src="{{this.imgUrl}}" alt="{{this.imgAlt}}" onclick="displayScroll()">
+        <img src="{{this.imgUrl}}" alt="{{this.imgAlt}}" data-toggle="modal" data-target="#ratModal" class="ratPic"> 
+        <!-- carousel-caption puts a caption on the slide -->
         <div class="carousel-caption">
           <h4>{{this.name}}</h4>
+          <span>Photo courtesy of {{this.imgCredit}}</span>
         </div>
       </div>
     {{/each}}
-  </div>
+    </div>
 
-  <!-- Left and right control buttons -->
+  <!-- Left and right control buttons --> 
+    <!--left carousel-control puts a control button on the left of the carousel
+    data-slide accepts the keywords "prev" and "next". In this case we want 
+    to move to the previous picture so we set it to "prev".-->
   <a class="left carousel-control" href="#ratCarousel" data-slide="prev">
+    <!-- glyphicon glyphicon-chevron-left uses a specific style of left arrow-->
     <span class="glyphicon glyphicon-chevron-left"></span>
+   <!-- class="sr-only" means this shows up for screen readers only
+      so if somebody is using a screen reader, it will commnunicate 
+      "Previous" to them-->
     <span class="sr-only">Previous</span> 
   </a>
+    <!--right carousel-control puts a control button on the right of the carousel
+    data-slide accepts the keywords "prev" and "next". In this case we want 
+    to move to the next picture so we set it to "next".-->
   <a class="right carousel-control" href="#ratCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
+    <!-- class="sr-only" means this shows up for screen readers only
+      so if somebody is using a screen reader, it will commnunicate 
+      "Next" to them-->
     <span class="sr-only">Next</span>
   </a>
   </div>
+</div>  
+</div> 
+
+
+<!-- Scrollbox inspired by getboostrap.com modal documentation-->
+<div id="ratModal" class="modal fade" aria-hidden="true" tabindex="-1" role="dialog" aria-labelled="ratTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="ratTitle" class="modal-title"><!--Will be rat's name --></h3>
+                <button type="button" aria-label="Close" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="ratModalBody" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
-
-  <!-- Adding the scrollbox for each rat, but keeping it hidden until clicked-->
-
 </div>
 
 <footer class="container-fluid text-center">
