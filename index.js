@@ -23,7 +23,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   // Read Json file
   const fs = require('fs');
-  fs.readFile("views/data/ratties.json", function(err, data) {
+  fs.readFile("data/ratties.json", function(err, data) {
     if (err) throw err;
     const parsedData = JSON.parse(data);
     res.render('home', parsedData);
@@ -44,7 +44,7 @@ app.get('/volunteer', (req,res) => {
 app.get('/adopt', (req,res) => {
   // Read Json file
   const fs = require('fs');
-  fs.readFile("views/data/ratties.json", function(err, data) {
+  fs.readFile("data/ratties.json", function(err, data) {
     if (err) throw err;
     const parsedData = JSON.parse(data);
     res.render('adopt', parsedData);
