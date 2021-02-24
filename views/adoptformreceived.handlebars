@@ -16,11 +16,18 @@
 <div class="container">
 
   <!-- Navigation Bar inspired by w3schools.com Bootstrap NavBar reference-->
+  <!-- Navigation Bar inspired by w3schools.com Bootstrap reference
+  The class navbar navbar-default adds a default navigation bar the 
+  top of the page that is by default responsive-->
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <!-- container-fluid class spans the full width of the viewport -->
+    <div class="container-fluid"> 
+      <!-- navbar-brand is for the brand or company's name and it 
+      shows up on the left corner of the navigation bar-->
       <div class="container-header">
         <a class="navbar-brand">Rebecca's Rattie Rescue</a>
       </div>
+      <!-- Create menu options that will be in the navigation bar -->
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="about">About Us</a></li>
@@ -30,6 +37,8 @@
     </div>
   </nav>
 
+  <!-- User will get a confirmation with their name and email once the form has 
+  submitted -->
   <div class="container-fluid">
     <h2>Request submitted!</h2>
     <p>Thank you for your interest in adopting rats, {{firstName}}!<br>
