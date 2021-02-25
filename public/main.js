@@ -24,13 +24,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
       }
     } 
     httpRequest.open('GET', path, true);
-    httpRequest.send(); 
+    httpRequest.send(null); 
   }
 
-  fetchJSONData('../views/data/ratties.json', function(data) {
-    console.log(data);
-  });
-  // Add event listener to each of the rats
+  // Add event listener to each of the rats in the carousel
   let ratPics = document.getElementsByClassName('ratPic');
   for (const ratPic of ratPics) {
     ratPic.addEventListener('click', function(event) {
@@ -38,50 +35,44 @@ document.addEventListener('DOMContentLoaded', function(event) {
       let modal = document.getElementById('ratModalBody');
       modal.innerHTML = "";
 
-      /* Make an http request to the server 
-      let req = new XMLHttpRequest();
-      req.open("GET", "../views/data/ratties.json", true);
-      req.send(null);
-      console.log(JSON.parse(req.responseText));
-      */
-      
+      // Make a request to fetch the data for this specific rat
+      fetchJSONData('/getrat?name=Crinkles', function(data) {
       // Save data in a rat object
-  
+      const rat = data;
+        
       // Create unorder list element to append rattie data to
       const ratInfoList = document.createElement('ul');
       ratInfoList.setAttribute('style', 'list-style: none');
 
-      // Create list element and add name value to it
-      const ratNameLi = document.createElement('li');
-      ratNameLi.innerHTML = rat['name'];
+      // Change modal title to rat name
+      const ratName = document.getElementById('ratTitle');
+      ratName.innerHTML = rat[0]['name'];
 
       // Create list element and append img to it
       const ratImgLi = document.createElement('li');
       const ratImg = document.createElement('img');
-      ratImg.setAttribute('src', rat['imgUrl']);
-      ratImg.setAttribute('alt', rat['imgAlt']);
+      ratImg.setAttribute('src', rat[0]['imgUrl']);
+      ratImg.setAttribute('alt', rat[0]['imgAlt']);
       ratImgLi.appendChild(ratImg);
-      
+        
       // Create list element and add age value to it
       const ratAgeLi = document.createElement('li');
-      ratAgeLi.innerHTML = 'Age: ' + rat['age'] + ' months';
+      ratAgeLi.innerHTML = 'Age: ' + rat[0]["age"] + ' months';
 
       // Create list element and add sex value to it
       const ratSexLi = document.createElement('li');
-      ratSexLi.innerHTML = 'Sex: ' + rat['sex'];
+      ratSexLi.innerHTML = 'Sex: ' + rat[0]['sex'];
 
       // Create list element and add favorite treat to it
       const ratTreatLi = document.createElement('li');
-      ratTreatLi.innerHTML = 'Favorite Treat: ' + rat['favoriteTreat'];
+      ratTreatLi.innerHTML = 'Favorite Treat: ' + rat[0]['favoriteTreat'];
 
       // Create list element and add description to it
       const ratDescLi = document.createElement('li');
-      ratDescLi.innerHTML = rat['description'];
+      ratDescLi.innerHTML = rat[0]['description'];
 
       // Append all of the list elements to the list
       // Add break lines in between list items
-      ratInfoList.appendChild(ratNameLi);
-      ratInfoList.appendChild(document.createElement('br')); 
       ratInfoList.appendChild(ratImgLi);
       ratInfoList.appendChild(document.createElement('br'));
       ratInfoList.appendChild(ratAgeLi);
@@ -91,10 +82,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
       ratInfoList.appendChild(ratTreatLi);
       ratInfoList.appendChild(document.createElement('br'));
       ratInfoList.appendChild(ratDescLi);
-    
+      
       // append list element to modal body
       modal.appendChild(ratInfoList);
     });
+  });
   }
 });
 

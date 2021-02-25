@@ -1,4 +1,5 @@
 // Loads the express module
+const { EEXIST } = require('constants');
 const express = require('express');
 
 // Creates our express server
@@ -44,7 +45,7 @@ app.get('/volunteer', (req,res) => {
 app.get('/adopt', (req,res) => {
   // Read Json file
   const fs = require('fs');
-  fs.readFile("data/ratties.json", function(err, data) {
+  fs.readFile('data/ratties.json', function(err, data) {
     if (err) throw err;
     const parsedData = JSON.parse(data);
     res.render('adopt', parsedData);
@@ -57,6 +58,20 @@ app.post('/adoptformreceived', (req,res) => {
   context.firstName = req.body.firstName;
   context.email = req.body.email;
   res.render('adoptformreceived', context);
+});
+
+app.get('/getrat', (req, res) => {
+  // Read Json file
+  const fs = require('fs');
+  fs.readFile('data/ratties.json', function(err, data) {
+    if (err) throw err;
+    const parsedData = JSON.parse(data);
+    //console.log(parsedData["ratties"][0]);
+    const ratObj = parsedData["ratties"].filter(obj => {
+      return obj.name == req.query.name;
+    })
+    res.send(ratObj);
+  });
 });
 
 // Handles 404 error
