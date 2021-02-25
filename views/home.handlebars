@@ -66,7 +66,7 @@
       {{/if}}
         <!-- data-toggle="modal" opens the modal window when we click on the rat
           data-target-#ratModel points to the id of the modal-->
-        <img src="{{this.imgUrl}}" alt="{{this.imgAlt}}" data-toggle="modal" data-target="#ratModal" class="ratPic"> 
+        <img id={{this.name}} src="{{this.imgUrl}}" alt="{{this.imgAlt}}" data-toggle="modal" data-target="#ratModal" class="ratPic"> 
         <!-- carousel-caption puts a caption on the slide -->
         <div class="carousel-caption">
           <h4>{{this.name}}</h4>

@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(event) {
   console.log("DOM fully loaded and parsed");
-  let rat = {
-			"id": 0,
-			"name": "Prishe",
-			"imgUrl": "images/Prishe.jpg",
-			"imgCredit": "https://unsplash.com/",
-			"imgAlt": "rat looking around curiously",
-			"age": 19,
-			"sex": "female",
-			"favoriteTreat": "Grapes",
-			"description": "Prishe loves to lay around in the hammock, along with her best friends.",
-			"active": 1 
-  };
 
   let body = document.body;
 
@@ -35,12 +23,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
       let modal = document.getElementById('ratModalBody');
       modal.innerHTML = "";
 
-      // Get the name of the current rat clicked
-
-      //const getUrl = '/getrat?name=' + ratPic.name + "'";
+      // Make the GET url by using the rat's name
+      const getUrl = 'getrat?name=' + ratPic.getAttribute('id');
 
       // Make a request to fetch the data for this specific rat
-      fetchJSONData('/getrat?name=Crinkles', function(data) {
+      fetchJSONData(getUrl, function(data) {
       // Save data in a rat object
       const rat = data;
         
