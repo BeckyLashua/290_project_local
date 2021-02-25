@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
       let modal = document.getElementById('ratModalBody');
       modal.innerHTML = "";
 
+      // Get the name of the current rat clicked
+
+      //const getUrl = '/getrat?name=' + ratPic.name + "'";
+
       // Make a request to fetch the data for this specific rat
       fetchJSONData('/getrat?name=Crinkles', function(data) {
       // Save data in a rat object
