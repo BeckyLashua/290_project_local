@@ -11,7 +11,7 @@ let exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.set('port', 3000);
+app.set('port', 64931);
 
 // Will handle both urlencoded and JSON params
 app.use(express.urlencoded({extended: false}));
